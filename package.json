@@ -1,0 +1,38 @@
+{
+  "name": "ethermine-api",
+  "version": "0.0.1",
+  "description": "NodeJS wrapper for ethermine.org API interaction",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SloRunner/ethermine-api.git"
+  },
+  "keywords": [
+    "ethermine",
+    "api",
+    "ethermine",
+    "ethereum",
+    "mining",
+    "crypto"
+  ],
+  "author": "SloRunner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SloRunner/ethermine-api/issues"
+  },
+  "homepage": "https://github.com/SloRunner/ethermine-api#readme",
+  "dependencies": {
+    "request": "^2.87.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  },
+  "directories": {
+    "example": "example",
+    "test": "tests"
+  }
+}
