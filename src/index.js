@@ -59,4 +59,13 @@ module.exports = class Ethermine {
             }
     	})
     }
+    getMinerDashboard(miner, callback){
+      browser(this.apiurl + '/miner/'+miner+'/dashboard', { json: true }, function(error, res, body) {
+            if (!error && res.statusCode == 200) {
+                callback(false, body)
+            } else {
+                callback(true, "")
+            }
+    	})
+    }
 }

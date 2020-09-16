@@ -9,6 +9,7 @@ describe('[ETH] getPoolStats() test', function () {
   		expect(err).to.be.equal(false);
   		expect(data).to.be.a('object');
   		expect(data.status).to.be.equal('OK');
+      console.log(JSON.stringify(data, false , 4));
   	})
   });
 });
