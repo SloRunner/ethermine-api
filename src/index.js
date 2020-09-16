@@ -5,8 +5,11 @@ var browser = request.defaults({
 })
 
 module.exports = class Ethermine {
-    constructor() {
-    	this.apiurl = 'https://api.ethermine.org';
+    constructor(apilink) {
+    	this.apiurl = apilink || 'https://api.ethermine.org';
+      if (!this.apiurl) {
+        throw new Error("API url is not defined");
+      }
     }
     getPoolStats(callback) {
     	browser(this.apiurl + '/poolStats', { json: true }, function(error, res, body) {
@@ -28,6 +31,15 @@ module.exports = class Ethermine {
     }
     getNetworkStats(callback){
     	browser(this.apiurl + '/networkStats', { json: true }, function(error, res, body) {
+            if (!error && res.statusCode == 200) {
+                callback(false, body)
+            } else {
+                callback(true, "")
+            }
+    	})
+    }
+    getServersHistory(callback){
+    	browser(this.apiurl + '/servers/history', { json: true }, function(error, res, body) {
             if (!error && res.statusCode == 200) {
                 callback(false, body)
             } else {

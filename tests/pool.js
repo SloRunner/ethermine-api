@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-const Ethermine = require('../index.js'); // use ethermine-api in production
+const Ethermine = require('../src/index.js'); // use ethermine-api in production
 const ethermine = new Ethermine();
 
 describe('getPoolStats() test', function () {
