@@ -1,8 +1,8 @@
 const expect = require('chai').expect
-const Ethermine = require('../index.js'); // use ethermine-api in production
-const ethermine = new Ethermine();
+const Ethermine = require('../src/index.js'); // use ethermine-api in production
+const ethermine = new Ethermine("https://api-ravencoin.flypool.org", true);
 
-describe('getPoolStats() test', function () {
+describe('[RVN] getPoolStats() test', function () {
   it('downloads pool stats with status ok', function () {
   	ethermine.getPoolStats(function(err, data){
   		expect(err).to.be.a('boolean');
@@ -13,7 +13,7 @@ describe('getPoolStats() test', function () {
   });
 });
 
-describe('getBlockHistory() test', function () {
+describe('[RVN] getBlockHistory() test', function () {
   it('downloads block history with status ok', function () {
   	ethermine.getBlockHistory(function(err, data){
   		expect(err).to.be.a('boolean');
@@ -24,7 +24,7 @@ describe('getBlockHistory() test', function () {
   });
 });
 
-describe('getNetworkStats() test', function () {
+describe('[RVN] getNetworkStats() test', function () {
   it('downloads network stats with status ok', function () {
   	ethermine.getBlockHistory(function(err, data){
   		expect(err).to.be.a('boolean');
@@ -35,7 +35,7 @@ describe('getNetworkStats() test', function () {
   });
 });
 
-describe('getServersHistory() test', function () {
+describe('[RVN] getServersHistory() test', function () {
   it('downloads servers history with status ok', function () {
   	ethermine.getBlockHistory(function(err, data){
   		expect(err).to.be.a('boolean');
