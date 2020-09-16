@@ -60,7 +60,70 @@ module.exports = class Ethermine {
     	})
     }
     getMinerDashboard(miner, callback){
+      if (!miner) {
+        throw new Error("No miner specified");
+      }
       browser(this.apiurl + '/miner/'+miner+'/dashboard', { json: true }, function(error, res, body) {
+            if (!error && res.statusCode == 200) {
+                callback(false, body)
+            } else {
+                callback(true, "")
+            }
+    	})
+    }
+    getMinerHistory(miner, callback){
+      if (!miner) {
+        throw new Error("No miner specified");
+      }
+      browser(this.apiurl + '/miner/'+miner+'/history', { json: true }, function(error, res, body) {
+            if (!error && res.statusCode == 200) {
+                callback(false, body)
+            } else {
+                callback(true, "")
+            }
+    	})
+    }
+    getMinerPayouts(miner, callback){
+      if (!miner) {
+        throw new Error("No miner specified");
+      }
+      browser(this.apiurl + '/miner/'+miner+'/payouts', { json: true }, function(error, res, body) {
+            if (!error && res.statusCode == 200) {
+                callback(false, body)
+            } else {
+                callback(true, "")
+            }
+    	})
+    }
+    getMinerRounds(miner, callback){
+      if (!miner) {
+        throw new Error("No miner specified");
+      }
+      browser(this.apiurl + '/miner/'+miner+'/rounds', { json: true }, function(error, res, body) {
+            if (!error && res.statusCode == 200) {
+                callback(false, body)
+            } else {
+                callback(true, "")
+            }
+    	})
+    }
+    getMinerSettings(miner, callback){
+      if (!miner) {
+        throw new Error("No miner specified");
+      }
+      browser(this.apiurl + '/miner/'+miner+'/settings', { json: true }, function(error, res, body) {
+            if (!error && res.statusCode == 200) {
+                callback(false, body)
+            } else {
+                callback(true, "")
+            }
+    	})
+    }
+    getMinerCurrentStats(miner, callback){
+      if (!miner) {
+        throw new Error("No miner specified");
+      }
+      browser(this.apiurl + '/miner/'+miner+'/currentStats', { json: true }, function(error, res, body) {
             if (!error && res.statusCode == 200) {
                 callback(false, body)
             } else {
