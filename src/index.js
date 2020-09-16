@@ -5,10 +5,13 @@ var browser = request.defaults({
 })
 
 module.exports = class Ethermine {
-    constructor(apilink) {
+    constructor(apilink, debugit = false) {
     	this.apiurl = apilink || 'https://api.ethermine.org';
       if (!this.apiurl) {
         throw new Error("API url is not defined");
+      }
+      if (debugit) {
+        console.log(this.apiurl)
       }
     }
     getPoolStats(callback) {
