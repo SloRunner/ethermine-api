@@ -50,15 +50,6 @@ module.exports = class Ethermine {
             }
     	})
     }
-    getServersHistory(callback){
-    	browser(this.apiurl + '/servers/history', { json: true }, function(error, res, body) {
-            if (!error && res.statusCode == 200) {
-                callback(false, body)
-            } else {
-                callback(true, "")
-            }
-    	})
-    }
     getMinerDashboard(miner, callback){
       if (!miner) {
         throw new Error("No miner specified");
@@ -173,5 +164,14 @@ module.exports = class Ethermine {
                 callback(true, "")
             }
     	})
+    }
+    setAPIurl(url = 'https://api.ethermine.org', callback){
+      let validapi = ['https://api.ethermine.org', 'https://api-zcash.flypool.org', 'https://api-ycash.flypool.org', 'https://api-etc.ethermine.org', 'https://api-beam.flypool.org', 'https://api-ravencoin.flypool.org'];
+      if (validapi.indexOf(url) > -1) {
+        this.apiurl = url;
+        callback(false, 'API URL set to: ' + url);
+      }else{
+        callback(true, 'API not supported');
+      }
     }
 }

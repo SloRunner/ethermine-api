@@ -4,4 +4,6 @@
 
 [![Actions Status](https://github.com/SloRunner/ethermine-api/workflows/Node.js%20Package%20Publish/badge.svg)](https://github.com/SloRunner/ethermine-api/actions)
 
-Api for ethermine interaction
+Interact with ethermine and other API's provided by ethermine.com
+
+Usage: See [examples](https://github.com/SloRunner/ethermine-api/tree/master/example)
