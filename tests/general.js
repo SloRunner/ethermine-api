@@ -144,3 +144,21 @@ describe('getWorkerCurrentStats() test', function () {
   	})
   });
 });
+
+describe('setAPIurl() test', function() {
+  it('changes the api endpoint based on whitelist', function(){
+    ethermine.setAPIurl('https://api-zcash.flypool.org', function(err, data){
+      expect(err).to.be.equal(false);
+      expect(data).to.be.a('string')
+    })
+  })
+})
+
+describe('setAPIurl() test', function() {
+  it('changes the api endpoint based on whitelist, not whitelisted domain', function(){
+    ethermine.setAPIurl('https://example.com', function(err, data){
+      expect(err).to.be.equal(false);
+      expect(data).to.be.a('string')
+    })
+  })
+})
