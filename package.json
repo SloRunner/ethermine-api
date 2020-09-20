@@ -1,6 +1,6 @@
 {
   "name": "ethermine-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "NodeJS wrapper for ethermine.org API interaction",
   "main": "src/index.js",
   "scripts": {
