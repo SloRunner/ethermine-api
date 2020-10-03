@@ -1,7 +1,5 @@
 node_modules/
 *.log
-test/
+tests/
 example/
-*.md
-.git/
-.github/
+.env
