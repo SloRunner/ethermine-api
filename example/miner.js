@@ -3,7 +3,7 @@ const ethermine = new Ethermine();
 
 let miner = "0x4bd46f005099d400768dc057c96a60180e891cf9";
 
-ethermine.getMinerDashboard(function(err, data){
+ethermine.getMinerDashboard(miner, function(err, data){
     console.log(err, data)
 })
 
