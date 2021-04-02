@@ -50,6 +50,18 @@ module.exports = class Ethermine {
             }
     	})
     }
+    getEthpoolCredits(callback){
+      if (this.apiurl != 'https://api.ethpool.org') {
+        return callback(true, 'Only works on ethpool.api')
+      };
+      browser(this.apiurl + '/credits', { json: true }, function(error, res, body) {
+            if (!error && res.statusCode == 200) {
+                callback(false, body)
+            } else {
+                callback(true, "")
+            }
+      })
+    }
     getMinerDashboard(miner, callback){
       if (!miner) {
         throw new Error("No miner specified");
@@ -163,10 +175,10 @@ module.exports = class Ethermine {
             } else {
                 callback(true, "")
             }
-    	})
+      })
     }
     setAPIurl(url = 'https://api.ethermine.org', callback){
-      let validapi = ['https://api.ethermine.org', 'https://api-zcash.flypool.org', 'https://api-ycash.flypool.org', 'https://api-etc.ethermine.org', 'https://api-beam.flypool.org', 'https://api-ravencoin.flypool.org'];
+      let validapi = ['https://api.ethermine.org', 'https://api-zcash.flypool.org', 'https://api-ycash.flypool.org', 'https://api-etc.ethermine.org', 'https://api-beam.flypool.org', 'https://api-ravencoin.flypool.org', 'https://api.ethpool.org'];
       if (validapi.indexOf(url) > -1) {
         this.apiurl = url;
         callback(false, 'API URL set to: ' + url);

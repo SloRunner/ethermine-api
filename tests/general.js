@@ -162,3 +162,24 @@ describe('setAPIurl() test', function() {
     })
   })
 })
+
+describe('getEthpoolCredits() wrong domain test', function() {
+  it('Gets data from /credits endpoint only from ethpool.com', function(){
+    ethermine.getEthpoolCredits(function(err, data){
+      expect(err).to.be.equal(true);
+      expect(data).to.be.a('string')
+    })
+  })
+})
+
+const ethermine2 = new Ethermine('https://api.ethpool.org');
+describe('getEthpoolCredits() ok domain test', function() {
+  it('Gets data from /credits endpoint only from ethpool.com', function(){
+    ethermine2.getEthpoolCredits(function(err, data){
+      expect(err).to.be.a('boolean');
+      expect(err).to.be.equal(false);
+      expect(data).to.be.a('object');
+      expect(data.status).to.be.equal('OK');
+    })
+  })
+})
