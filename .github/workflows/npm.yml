@@ -1,9 +1,9 @@
-name: Node.js Package Publish
+name: Node.js Package Publish - Master
 
 on:
   push:
     branches:
-      - dev
+      - master
 
 jobs:
   Run-tests:
@@ -36,6 +36,6 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-#      - run: npm publish
-#        env:
-#          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
