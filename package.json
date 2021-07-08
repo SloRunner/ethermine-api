@@ -1,6 +1,6 @@
 {
   "name": "ethermine-api",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "NodeJS wrapper for ethermine.org API interaction",
   "main": "src/index.js",
   "scripts": {
@@ -28,7 +28,7 @@
     "request": "^2.87.0"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
+    "chai": "^4.3.4",
     "mocha": "^5.2.0"
   },
   "directories": {
