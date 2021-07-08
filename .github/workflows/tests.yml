@@ -3,7 +3,7 @@ name: Node.js CI
 on: [push]
 
 jobs:
-  build:
+  Run-tests:
 
     runs-on: ubuntu-latest
 
