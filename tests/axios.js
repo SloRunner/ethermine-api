@@ -26,7 +26,7 @@ describe('getBlockHistory() test', function () {
 
 describe('getNetworkStats() test', function () {
   it('downloads network stats with status ok', function () {
-  	ethermine.getBlockHistory(function(err, data){
+  	ethermine.getNetworkStats(function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
   		expect(data).to.be.a('object');
@@ -40,7 +40,7 @@ describe('getServersHistory() test', function () {
   	ethermine.getBlockHistory(function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
-  		expect(data).to.be.a('object');
+  		expect(data).to.be.a('array');
   		expect(data.status).to.be.equal('OK');
   	})
   });
@@ -73,7 +73,7 @@ describe('getMinerPayouts() test', function () {
   	ethermine.getMinerPayouts("0x4bd46f005099d400768dc057c96a60180e891cf9",function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
-  		expect(data).to.be.a('array');
+  		expect(data).to.be.a('object');
   		expect(data.status).to.be.equal('OK');
   	})
   });
@@ -95,7 +95,7 @@ describe('getMinerSettings() test', function () {
   	ethermine.getMinerSettings("0x4bd46f005099d400768dc057c96a60180e891cf9",function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
-  		expect(data).to.be.a('object');
+  		expect(data).to.be.a('array');
   		expect(data.status).to.be.equal('OK');
   	})
   });
