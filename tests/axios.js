@@ -1,6 +1,6 @@
 const expect = require('chai').expect
 const Ethermine = require('../src/index.js'); // use ethermine-api in production
-const ethermine = new Ethermine.Ethermine();
+const ethermine = new Ethermine.EthermineAxios();
 
 describe('getPoolStats() test', function () {
   it('downloads pool stats with status ok', function () {
@@ -73,7 +73,7 @@ describe('getMinerPayouts() test', function () {
   	ethermine.getMinerPayouts("0x4bd46f005099d400768dc057c96a60180e891cf9",function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
-  		expect(data).to.be.a('object');
+  		expect(data).to.be.a('array');
   		expect(data.status).to.be.equal('OK');
   	})
   });
@@ -172,14 +172,13 @@ describe('getEthpoolCredits() wrong domain test', function() {
   })
 })
 
-const ethermine2 = new Ethermine.Ethermine('https://api.ethpool.org');
+const ethermine2 = new Ethermine.EthermineAxios('https://api.ethpool.org');
 describe('getEthpoolCredits() ok domain test', function() {
   it('Gets data from /credits endpoint only from ethpool.com', function(){
     ethermine2.getEthpoolCredits(function(err, data){
       expect(err).to.be.a('boolean');
       expect(err).to.be.equal(false);
       expect(data).to.be.a('object');
-	  console.log(data)
       expect(data.status).to.be.equal('OK');
     })
   })
