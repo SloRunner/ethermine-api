@@ -1,6 +1,6 @@
 const expect = require('chai').expect
 const Ethermine = require('../src/index.js'); // use ethermine-api in production
-const ethermine = new Ethermine.EthermineAxios();
+const ethermine = new Ethermine.EthermineFetch();
 
 describe('getPoolStats() test', function () {
   it('downloads pool stats with status ok', function () {
