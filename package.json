@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/SloRunner/ethermine-api#readme",
   "dependencies": {
-    "axios": "^0.21.1",
+    "node-fetch": "latest",
     "request": "^2.88.2"
   },
   "devDependencies": {
