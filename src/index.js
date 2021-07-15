@@ -4,11 +4,12 @@ let browser = request.defaults({
   headers: {'User-Agent': 'The Botfather NodeJS module (https://www.npmjs.com/package/ethermine-api)'}
 })
 
-const axios = require('axios').default
+const fetch = require('node-fetch')
 
-let axiosbrowser = axios.create({
+const fetchoptions = {
   headers: {'User-Agent': 'The Botfather NodeJS module (https://www.npmjs.com/package/ethermine-api)'}
-})
+}
+
 
 class Ethermine {
   constructor(apilink, debugit = false) {
@@ -206,7 +207,7 @@ class EthermineAxios {
     }
   }
   getPoolStats(callback) {
-    axiosbrowser.get(this.apiurl + '/poolStats')
+    fetch(this.apiurl + '/poolStats')
     .then(function(body){
       callback(false,body.data)
     })
@@ -215,7 +216,7 @@ class EthermineAxios {
     })
   }
   getBlockHistory(callback){
-    axiosbrowser.get(this.apiurl + '/blocks/history')
+    fetch(this.apiurl + '/blocks/history')
     .then(function(body){
       callback(false,body.data)
     })
@@ -224,7 +225,7 @@ class EthermineAxios {
     })
   }
   getNetworkStats(callback){
-    axiosbrowser.get(this.apiurl + '/networkStats')
+    fetch(this.apiurl + '/networkStats')
     .then(function(body){
       callback(false,body.data)
     })
@@ -233,7 +234,7 @@ class EthermineAxios {
     })
   }
   getServersHistory(callback){
-    axiosbrowser.get(this.apiurl + '/servers/history')
+    fetch(this.apiurl + '/servers/history')
     .then(function(body){
       callback(false,body.data)
     })
@@ -245,7 +246,7 @@ class EthermineAxios {
     if (this.apiurl != 'https://api.ethpool.org') {
       return callback(true, 'Only works on ethpool.api')
     };
-    axiosbrowser.get(this.apiurl + '/credits')
+    fetch(this.apiurl + '/credits')
     .then(function(body){
       callback(false,body.data)
     })
@@ -257,7 +258,7 @@ class EthermineAxios {
     if (!miner) {
       throw new Error("No miner specified");
     }
-    axiosbrowser.get(this.apiurl + '/miner/'+miner+'/dashboard')
+    fetch(this.apiurl + '/miner/'+miner+'/dashboard')
     .then(function(body){
       callback(false,body.data)
     })
@@ -269,7 +270,7 @@ class EthermineAxios {
     if (!miner) {
       throw new Error("No miner specified");
     }
-    axiosbrowser.get(this.apiurl + '/miner/'+miner+'/history')
+    fetch(this.apiurl + '/miner/'+miner+'/history')
     .then(function(body){
       callback(false,body.data)
     })
@@ -281,7 +282,7 @@ class EthermineAxios {
     if (!miner) {
       throw new Error("No miner specified");
     }
-    axiosbrowser.get(this.apiurl + '/miner/'+miner+'/payouts')
+    fetch(this.apiurl + '/miner/'+miner+'/payouts')
     .then(function(body){
       callback(false,body.data)
     })
@@ -293,7 +294,7 @@ class EthermineAxios {
     if (!miner) {
       throw new Error("No miner specified");
     }
-    axiosbrowser.get(this.apiurl + '/miner/'+miner+'/rounds')
+    fetch(this.apiurl + '/miner/'+miner+'/rounds')
     .then(function(body){
       callback(false,body.data)
     })
@@ -305,7 +306,7 @@ class EthermineAxios {
     if (!miner) {
       throw new Error("No miner specified");
     }
-    axiosbrowser.get(this.apiurl + '/miner/'+miner+'/settings')
+    fetch(this.apiurl + '/miner/'+miner+'/settings')
     .then(function(body){
       callback(false,body.data)
     })
@@ -317,7 +318,7 @@ class EthermineAxios {
     if (!miner) {
       throw new Error("No miner specified");
     }
-    axiosbrowser.get(this.apiurl + '/miner/'+miner+'/currentStats')
+    fetch(this.apiurl + '/miner/'+miner+'/currentStats')
     .then(function(body){
       callback(false,body.data)
     })
@@ -330,13 +331,9 @@ class EthermineAxios {
     if (!miner) {
       throw new Error("No miner specified");
     }
-    browser(this.apiurl + '/miner/'+miner+'/workers', { json: true }, function(error, res, body) {
-          if (!error && res.statusCode == 200) {
-              callback(false, body.data)
-          } else {
-              callback(true, "")
-          }
-    })
+    fetch(this.apiurl + '/miner/'+miner+'/workers')
+    .then(body => callback(false,body))
+    .catch(err => callback(true, ""))
   }
   getWorkerHistory(miner, worker, callback){
     if (!miner) {
@@ -345,7 +342,7 @@ class EthermineAxios {
     if (!worker) {
       throw new Error("No worker specified")
     }
-    axiosbrowser.get(this.apiurl + '/miner/'+miner+'/worker'+worker+'/history')
+    fetch(this.apiurl + '/miner/'+miner+'/worker'+worker+'/history')
     .then(function(body){
       callback(false,body.data)
     })
@@ -360,7 +357,7 @@ class EthermineAxios {
     if (!worker) {
       throw new Error("No worker specified")
     }
-    axiosbrowser.get(this.apiurl + '/miner/'+miner+'/worker'+worker+'/currentStats')
+    fetch(this.apiurl + '/miner/'+miner+'/worker'+worker+'/currentStats')
     .then(function(body){
       callback(false,body.data)
     })
