@@ -195,7 +195,7 @@ class Ethermine {
   }
 }
 
-class EthermineAxios {
+class EthermineFetch {
 
   constructor(apilink, debugit = false) {
     this.apiurl = apilink || 'https://api.ethermine.org';
