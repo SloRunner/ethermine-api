@@ -172,7 +172,7 @@ describe('[node-fetch] getEthpoolCredits() wrong domain test', function() {
   })
 })
 
-const ethermine2 = new Ethermine.EthermineAxios('https://api.ethpool.org');
+const ethermine2 = new Ethermine.EthermineFetch('https://api.ethpool.org');
 describe('[node-fetch] getEthpoolCredits() ok domain test', function() {
   it('Gets data from /credits endpoint only from ethpool.com', function(){
     ethermine2.getEthpoolCredits(function(err, data){
