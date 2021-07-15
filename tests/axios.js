@@ -125,7 +125,7 @@ describe('getMinerWorkers() test', function () {
 
 describe('getWorkerHistory() test', function () {
   it('downloads miner worker history with status ok', function () {
-  	ethermine.getWorkerHistory("0x4bd46f005099d400768dc057c96a60180e891cf9", "051",function(err, data){
+  	ethermine.getWorkerHistory("0x4bd46f005099d400768dc057c96a60180e891cf9", "331",function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
   		expect(data).to.be.a('object');
@@ -136,7 +136,7 @@ describe('getWorkerHistory() test', function () {
 
 describe('getWorkerCurrentStats() test', function () {
   it('downloads worker current stats with status ok', function () {
-  	ethermine.getWorkerCurrentStats("0x4bd46f005099d400768dc057c96a60180e891cf9", "051",function(err, data){
+  	ethermine.getWorkerCurrentStats("0x4bd46f005099d400768dc057c96a60180e891cf9", "331",function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
   		expect(data).to.be.a('object');
