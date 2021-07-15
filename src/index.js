@@ -378,5 +378,5 @@ class EthermineFetch {
 
 module.exports = {
   Ethermine: Ethermine,
-  EthermineAxios: EthermineAxios
+  EthermineFetch: EthermineFetch
 }
