@@ -1,4 +1,3 @@
-'use strict'
 const request = require('request')
 let browser = request.defaults({
   headers: {'User-Agent': 'The Botfather NodeJS module (https://www.npmjs.com/package/ethermine-api)'}

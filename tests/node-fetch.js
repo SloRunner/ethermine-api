@@ -2,6 +2,10 @@ const expect = require('chai').expect
 const Ethermine = require('../src/index.js'); // use ethermine-api in production
 const ethermine = new Ethermine.EthermineFetch();
 
+// TODO: make this dynamic
+const mineraddr = "0x4bd46f005099d400768dc057c96a60180e891cf9"
+const workerid = "331"
+
 describe('[node-fetch] getPoolStats() test', function () {
   it('downloads pool stats with status ok', function () {
   	ethermine.getPoolStats(function(err, data){
@@ -48,7 +52,7 @@ describe('[node-fetch] getServersHistory() test', function () {
 
 describe('[node-fetch] getMinerDashboard() test', function () {
   it('downloads genearal miner stats with status ok', function () {
-  	ethermine.getMinerDashboard("0x4bd46f005099d400768dc057c96a60180e891cf9",function(err, data){
+  	ethermine.getMinerDashboard(mineraddr,function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
   		expect(data).to.be.a('object');
@@ -59,7 +63,7 @@ describe('[node-fetch] getMinerDashboard() test', function () {
 
 describe('[node-fetch] getMinerHistory() test', function () {
   it('downloads miner history with status ok', function () {
-  	ethermine.getMinerHistory("0x4bd46f005099d400768dc057c96a60180e891cf9",function(err, data){
+  	ethermine.getMinerHistory(mineraddr,function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
   		expect(data).to.be.a('object');
@@ -70,7 +74,7 @@ describe('[node-fetch] getMinerHistory() test', function () {
 
 describe('[node-fetch] getMinerPayouts() test', function () {
   it('downloads miner payouts with status ok', function () {
-  	ethermine.getMinerPayouts("0x4bd46f005099d400768dc057c96a60180e891cf9",function(err, data){
+  	ethermine.getMinerPayouts(mineraddr,function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
   		expect(data).to.be.a('object');
@@ -81,7 +85,7 @@ describe('[node-fetch] getMinerPayouts() test', function () {
 
 describe('[node-fetch] getMinerRounds() test', function () {
   it('downloads miner rounds with status ok', function () {
-  	ethermine.getMinerRounds("0x4bd46f005099d400768dc057c96a60180e891cf9",function(err, data){
+  	ethermine.getMinerRounds(mineraddr,function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
   		expect(data).to.be.a('object');
@@ -92,7 +96,7 @@ describe('[node-fetch] getMinerRounds() test', function () {
 
 describe('[node-fetch] getMinerSettings() test', function () {
   it('downloads miner settings with status ok', function () {
-  	ethermine.getMinerSettings("0x4bd46f005099d400768dc057c96a60180e891cf9",function(err, data){
+  	ethermine.getMinerSettings(mineraddr,function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
   		expect(data).to.be.a('array');
@@ -103,7 +107,7 @@ describe('[node-fetch] getMinerSettings() test', function () {
 
 describe('[node-fetch] getMinerCurrentStats() test', function () {
   it('downloads miner current stats with status ok', function () {
-  	ethermine.getMinerSettings("0x4bd46f005099d400768dc057c96a60180e891cf9",function(err, data){
+  	ethermine.getMinerSettings(mineraddr,function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
   		expect(data).to.be.a('object');
@@ -114,7 +118,7 @@ describe('[node-fetch] getMinerCurrentStats() test', function () {
 
 describe('[node-fetch] getMinerWorkers() test', function () {
   it('downloads miner workers with status ok', function () {
-  	ethermine.getMinerWorkers("0x4bd46f005099d400768dc057c96a60180e891cf9",function(err, data){
+  	ethermine.getMinerWorkers(mineraddr,function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
   		expect(data).to.be.a('object');
@@ -125,7 +129,7 @@ describe('[node-fetch] getMinerWorkers() test', function () {
 
 describe('[node-fetch] getWorkerHistory() test', function () {
   it('downloads miner worker history with status ok', function () {
-  	ethermine.getWorkerHistory("0x4bd46f005099d400768dc057c96a60180e891cf9", "331",function(err, data){
+  	ethermine.getWorkerHistory(mineraddr, workerid,function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
   		expect(data).to.be.a('object');
@@ -136,7 +140,7 @@ describe('[node-fetch] getWorkerHistory() test', function () {
 
 describe('[node-fetch] getWorkerCurrentStats() test', function () {
   it('downloads worker current stats with status ok', function () {
-  	ethermine.getWorkerCurrentStats("0x4bd46f005099d400768dc057c96a60180e891cf9", "331",function(err, data){
+  	ethermine.getWorkerCurrentStats(mineraddr, workerid,function(err, data){
   		expect(err).to.be.a('boolean');
   		expect(err).to.be.equal(false);
   		expect(data).to.be.a('object');
