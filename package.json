@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/SloRunner/ethermine-api#readme",
   "dependencies": {
+    "bluebird": "^3.7.2",
     "node-fetch": "latest",
     "request": "^2.88.2"
   },

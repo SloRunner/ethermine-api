@@ -1,9 +1,12 @@
 const request = require('request')
+
 let browser = request.defaults({
   headers: {'User-Agent': 'The Botfather NodeJS module (https://www.npmjs.com/package/ethermine-api)'}
 })
 
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
+
+process.on('unhandledRejection', () => {}); // TODO: figure out prommise warnings
 
 const fetchoptions = {
   headers: {'User-Agent': 'The Botfather NodeJS module (https://www.npmjs.com/package/ethermine-api)'}
@@ -211,7 +214,7 @@ class EthermineFetch {
       callback(false,body.data)
     })
     .catch(function(err){
-      callback(true, {})
+      callback(true, "")
     })
   }
   getBlockHistory(callback){
