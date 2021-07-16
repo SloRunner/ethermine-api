@@ -6,7 +6,7 @@ let browser = request.defaults({
 
 const fetch = require('node-fetch');
 
-process.on('unhandledRejection', () => {}); // TODO: figure out prommise warnings
+process.on('unhandledRejection', () => {}); // TODO: figure out promise warnings
 
 const fetchoptions = {
   headers: {'User-Agent': 'The Botfather NodeJS module (https://www.npmjs.com/package/ethermine-api)'}
