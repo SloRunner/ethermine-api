@@ -211,7 +211,7 @@ class EthermineFetch {
   getPoolStats(callback) {
     fetch(this.apiurl + '/poolStats')
     .then(function(body){
-      callback(false,body.data)
+      callback(false,body.json())
     })
     .catch(function(err){
       callback(true, "")
@@ -220,7 +220,7 @@ class EthermineFetch {
   getBlockHistory(callback){
     fetch(this.apiurl + '/blocks/history')
     .then(function(body){
-      callback(false,body.data)
+      callback(false,body.json())
     })
     .catch(function(err){
       callback(true, "")
@@ -229,7 +229,7 @@ class EthermineFetch {
   getNetworkStats(callback){
     fetch(this.apiurl + '/networkStats')
     .then(function(body){
-      callback(false,body.data)
+      callback(false,body.json())
     })
     .catch(function(err){
       callback(true, "")
@@ -238,7 +238,7 @@ class EthermineFetch {
   getServersHistory(callback){
     fetch(this.apiurl + '/servers/history')
     .then(function(body){
-      callback(false,body.data)
+      callback(false,body.json())
     })
     .catch(function(err){
       callback(true,"")
@@ -250,7 +250,7 @@ class EthermineFetch {
     };
     fetch(this.apiurl + '/credits')
     .then(function(body){
-      callback(false,body.data)
+      callback(false,body.json())
     })
     .catch(function(err){
       callback(true,"")
@@ -262,7 +262,7 @@ class EthermineFetch {
     }
     fetch(this.apiurl + '/miner/'+miner+'/dashboard')
     .then(function(body){
-      callback(false,body.data)
+      callback(false,body.json())
     })
     .catch(function(err){
       callback(true,"")
@@ -274,7 +274,7 @@ class EthermineFetch {
     }
     fetch(this.apiurl + '/miner/'+miner+'/history')
     .then(function(body){
-      callback(false,body.data)
+      callback(false,body.json())
     })
     .catch(function(err){
       callback(true,"")
@@ -286,7 +286,7 @@ class EthermineFetch {
     }
     fetch(this.apiurl + '/miner/'+miner+'/payouts')
     .then(function(body){
-      callback(false,body.data)
+      callback(false,body.json())
     })
     .catch(function(err){
       callback(true,"")
@@ -298,7 +298,7 @@ class EthermineFetch {
     }
     fetch(this.apiurl + '/miner/'+miner+'/rounds')
     .then(function(body){
-      callback(false,body.data)
+      callback(false,body.json())
     })
     .catch(function(err){
       callback(true,"")
@@ -310,7 +310,7 @@ class EthermineFetch {
     }
     fetch(this.apiurl + '/miner/'+miner+'/settings')
     .then(function(body){
-      callback(false,body.data)
+      callback(false,body.json())
     })
     .catch(function(err){
       callback(true,"")
@@ -322,7 +322,7 @@ class EthermineFetch {
     }
     fetch(this.apiurl + '/miner/'+miner+'/currentStats')
     .then(function(body){
-      callback(false,body.data)
+      callback(false,body.json())
     })
     .catch(function(err){
       callback(true,"")
@@ -346,7 +346,7 @@ class EthermineFetch {
     }
     fetch(this.apiurl + '/miner/'+miner+'/worker'+worker+'/history')
     .then(function(body){
-      callback(false,body.data)
+      callback(false,body.json())
     })
     .catch(function(err){
       callback(true,"")
@@ -361,7 +361,7 @@ class EthermineFetch {
     }
     fetch(this.apiurl + '/miner/'+miner+'/worker'+worker+'/currentStats')
     .then(function(body){
-      callback(false,body.data)
+      callback(false,body.json())
     })
     .catch(function(err){
       callback(true,"")
