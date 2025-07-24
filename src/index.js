@@ -144,21 +144,7 @@ class Ethermine {
     })
   }
 
-  getMinerWorkers(miner, callback){
-    if (!miner) {
-      throw new Error("No miner specified");
-    }
-    browser(this.apiurl + '/miner/'+miner+'/workers', { json: true }, function(error, res, body) {
-          if (!error && res.statusCode == 200) {
-              callback(false, body)
-          } else {
-              callback(true, "")
-          }
-    })
-  }
-  getWorkerHistory(miner, worker, callback){
-    if (!miner) {
-      throw new Error("No miner specified");
+
     }
     if (!worker) {
       throw new Error("No worker specified")
