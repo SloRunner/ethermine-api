@@ -6,7 +6,7 @@ var browser = request.defaults({
 
 module.exports = class Ethermine {
     constructor(apilink, debugit = false) {
-    	this.apiurl = apilink || 'https://api.ethermine.org';
+	this.apiurl = apilink || 'https://api.ethermine.org';
       if (!this.apiurl || this.apiurl.length == 0) {
         throw new Error("API url is not defined");
       }
@@ -15,52 +15,40 @@ module.exports = class Ethermine {
       }
     }
     getPoolStats(callback) {
-    	browser(this.apiurl + '/poolStats', { json: true }, function(error, res, body) {
+	browser(this.apiurl + '/poolStats', { json: true }, function(error, res, body) {
             if (!error && res.statusCode == 200) {
                 callback(false, body)
             } else {
                 callback(true, "")
             }
-    	})
+	})
     }
     getBlockHistory(callback){
-    	browser(this.apiurl + '/blocks/history', { json: true }, function(error, res, body) {
+	browser(this.apiurl + '/blocks/history', { json: true }, function(error, res, body) {
             if (!error && res.statusCode == 200) {
                 callback(false, body)
             } else {
                 callback(true, "")
             }
-    	})
+	})
     }
     getNetworkStats(callback){
-    	browser(this.apiurl + '/networkStats', { json: true }, function(error, res, body) {
+	browser(this.apiurl + '/networkStats', { json: true }, function(error, res, body) {
             if (!error && res.statusCode == 200) {
                 callback(false, body)
             } else {
                 callback(true, "")
             }
-    	})
+	})
     }
     getServersHistory(callback){
-    	browser(this.apiurl + '/servers/history', { json: true }, function(error, res, body) {
+	browser(this.apiurl + '/servers/history', { json: true }, function(error, res, body) {
             if (!error && res.statusCode == 200) {
                 callback(false, body)
             } else {
                 callback(true, "")
             }
-    	})
-    }
-    getEthpoolCredits(callback){
-      if (this.apiurl != 'https://api.ethpool.org') {
-        return callback(true, 'Only works on ethpool.api')
-      };
-      browser(this.apiurl + '/credits', { json: true }, function(error, res, body) {
-            if (!error && res.statusCode == 200) {
-                callback(false, body)
-            } else {
-                callback(true, "")
-            }
-      })
+	})
     }
     getMinerDashboard(miner, callback){
       if (!miner) {
@@ -72,7 +60,7 @@ module.exports = class Ethermine {
             } else {
                 callback(true, "")
             }
-    	})
+	})
     }
     getMinerHistory(miner, callback){
       if (!miner) {
@@ -84,7 +72,7 @@ module.exports = class Ethermine {
             } else {
                 callback(true, "")
             }
-    	})
+	})
     }
     getMinerPayouts(miner, callback){
       if (!miner) {
@@ -96,7 +84,7 @@ module.exports = class Ethermine {
             } else {
                 callback(true, "")
             }
-    	})
+	})
     }
     getMinerRounds(miner, callback){
       if (!miner) {
@@ -108,7 +96,7 @@ module.exports = class Ethermine {
             } else {
                 callback(true, "")
             }
-    	})
+	})
     }
     getMinerSettings(miner, callback){
       if (!miner) {
@@ -120,7 +108,7 @@ module.exports = class Ethermine {
             } else {
                 callback(true, "")
             }
-    	})
+	})
     }
     getMinerCurrentStats(miner, callback){
       if (!miner) {
@@ -132,7 +120,7 @@ module.exports = class Ethermine {
             } else {
                 callback(true, "")
             }
-    	})
+	})
     }
 
     getMinerWorkers(miner, callback){
@@ -145,7 +133,7 @@ module.exports = class Ethermine {
             } else {
                 callback(true, "")
             }
-    	})
+	})
     }
     getWorkerHistory(miner, worker, callback){
       if (!miner) {
@@ -154,13 +142,13 @@ module.exports = class Ethermine {
       if (!worker) {
         throw new Error("No worker specified")
       }
-      browser(this.apiurl + '/miner/'+miner+'/worker'+worker+'/history', { json: true }, function(error, res, body) {
+      browser(this.apiurl + '/miner/'+miner+'/worker/'+worker+'/history', { json: true }, function(error, res, body) {
             if (!error && res.statusCode == 200) {
                 callback(false, body)
             } else {
                 callback(true, "")
             }
-    	})
+	})
     }
     getWorkerCurrentStats(miner, worker, callback){
       if (!miner) {
@@ -169,7 +157,7 @@ module.exports = class Ethermine {
       if (!worker) {
         throw new Error("No worker specified")
       }
-      browser(this.apiurl + '/miner/'+miner+'/worker'+worker+'/currentStats', { json: true }, function(error, res, body) {
+      browser(this.apiurl + '/miner/'+miner+'/worker/'+worker+'/currentStats', { json: true }, function(error, res, body) {
             if (!error && res.statusCode == 200) {
                 callback(false, body)
             } else {
@@ -179,7 +167,7 @@ module.exports = class Ethermine {
     }
     setAPIurl(url = 'https://api.ethermine.org', callback){
       const urlLib = require('url');
-      let validHosts = ['api-ergo.flypool.org', 'api-etc.ethermine.org', 'api-zcash.flypool.org', 'api-ycash.flypool.org', 'api-beam.flypool.org', 'api-ravencoin.flypool.org', 'api.ethpool.org'];
+      let validHosts = ['api-ergo.flypool.org', 'api-etc.ethermine.org', 'api-zcash.flypool.org', 'api-ycash.flypool.org', 'api-beam.flypool.org', 'api-ravencoin.flypool.org'];
       let parsedUrl = urlLib.parse(url);
       if (validHosts.includes(parsedUrl.host)) {
         this.apiurl = url;
