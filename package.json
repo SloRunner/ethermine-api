@@ -29,7 +29,8 @@
   },
   "devDependencies": {
     "chai": "^4.3.4",
-    "mocha": "^11.0.1"
+    "mocha": "^11.0.1",
+    "nock": "^14.0.10"
   },
   "directories": {
     "example": "example",

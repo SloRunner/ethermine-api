@@ -6,10 +6,10 @@ var browser = request.defaults({
 
 module.exports = class Ethermine {
     constructor(apilink, debugit = false) {
-    	this.apiurl = apilink || 'https://api.ethermine.org';
-      if (!this.apiurl || this.apiurl.length == 0) {
+      if (apilink === null || apilink === '') {
         throw new Error("API url is not defined");
       }
+	this.apiurl = apilink || 'https://api.ethermine.org';
       if (debugit) {
         console.log("API URL: " + this.apiurl)
       }
@@ -154,7 +154,7 @@ module.exports = class Ethermine {
       if (!worker) {
         throw new Error("No worker specified")
       }
-      browser(this.apiurl + '/miner/'+miner+'/worker'+worker+'/history', { json: true }, function(error, res, body) {
+      browser(this.apiurl + '/miner/'+miner+'/worker/'+worker+'/history', { json: true }, function(error, res, body) {
             if (!error && res.statusCode == 200) {
                 callback(false, body)
             } else {
@@ -169,7 +169,7 @@ module.exports = class Ethermine {
       if (!worker) {
         throw new Error("No worker specified")
       }
-      browser(this.apiurl + '/miner/'+miner+'/worker'+worker+'/currentStats', { json: true }, function(error, res, body) {
+      browser(this.apiurl + '/miner/'+miner+'/worker/'+worker+'/currentStats', { json: true }, function(error, res, body) {
             if (!error && res.statusCode == 200) {
                 callback(false, body)
             } else {
